@@ -8,7 +8,6 @@ builds:
       -X "github.com/IBM/argocd-vault-plugin/version.Version={{.Version}}"
       -X "github.com/IBM/argocd-vault-plugin/version.BuildDate={{.Date}}"
       -X "github.com/IBM/argocd-vault-plugin/version.CommitSHA={{.Commit}}"
-    mod_timestamp: "{{ $.CommitTimestamp }}"
     env:
       - "CGO_ENABLED=0"
     goarch:
@@ -20,9 +19,9 @@ builds:
       - static_build
 
 release:
-  prerelease: "false"
+  prerelease: auto
 
 changelog:
   filters:
     exclude:
-      - "^(refactor|style|test|docs|ci)(\\([^)]+\\))?(!)?:"
+      - "^(ci|style|test)(\\([^)]+\\))?(!)?:"
