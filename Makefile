@@ -10,8 +10,7 @@ build:
 	go build -o ${BINARY} .
 
 release:
-	rm -rf dist
-	goreleaser release --skip-publish
+	goreleaser release --skip-publish --rm-dist
 
 install: build
 
