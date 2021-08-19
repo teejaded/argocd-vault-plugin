@@ -433,6 +433,48 @@ func TestSecretReplacement_Base64Substrings(t *testing.T) {
 	assertSuccessfulReplacement(&dummyResource, &expected, t)
 }
 
+func TestAllValuesReplacement(t *testing.T) {
+	dummyResource := Resource{
+		TemplateData: map[string]interface{}{
+			"stringData": "</all>",
+		},
+		Data: map[string]interface{}{
+			"database": map[string]interface{}{
+				"username": "user",
+				"password": "secretpass",
+			},
+			"tag":       "latest",
+		},
+		Annotations: map[string]string{
+			(types.AVPPathAnnotation): "",
+		},
+	}
+
+	replaceInner(&dummyResource, &dummyResource.TemplateData, secretReplacement)
+
+	expected := Resource{
+		TemplateData: map[string]interface{}{
+			"stringData": map[string]interface{}{
+				"database": map[string]interface{}{
+					"username": "user",
+					"password": "secretpass",
+				},
+				"tag":       "latest",
+			},
+		},
+		Data: map[string]interface{}{
+			"database": map[string]interface{}{
+				"username": "user",
+				"password": "secretpass",
+			},
+			"tag":       "latest",
+		},
+		replacementErrors: []error{},
+	}
+
+	assertSuccessfulReplacement(&dummyResource, &expected, t)
+}
+
 func TestStringify(t *testing.T) {
 	testCases := []struct {
 		input    interface{}

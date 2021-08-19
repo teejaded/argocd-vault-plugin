@@ -133,10 +133,16 @@ func genericReplacement(key, value string, resource Resource) (_ interface{}, er
 				err = append(err, secretErr)
 				return match
 			}
+			secretValue = secrets
 			secretKey := strings.TrimSpace(string(indivSecretMatches[2]))
-			secretValue = secrets[secretKey]
+			if secretKey != "/all" {
+				secretValue = secrets[secretKey]
+			}
 		} else {
-			secretValue = resource.Data[string(placeholder)]
+			secretValue = resource.Data
+			if string(placeholder) != "/all" {
+				secretValue = resource.Data[string(placeholder)]
+			}
 		}
 
 		// Check for value in data
