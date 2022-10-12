@@ -14,7 +14,7 @@ require (
 	github.com/hashicorp/vault-plugin-secrets-kv v0.8.0
 	github.com/hashicorp/vault/api v1.1.1
 	github.com/hashicorp/vault/sdk v0.2.1
-	github.com/spf13/cobra v1.2.1
+	github.com/spf13/cobra v1.6.0
 	github.com/spf13/viper v1.8.1
 	golang.org/x/net v0.0.0-20210614182718-04defd469f4e
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c
