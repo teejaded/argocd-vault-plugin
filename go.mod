@@ -9,14 +9,14 @@ require (
 	github.com/IBM/secrets-manager-go-sdk v1.0.24
 	github.com/aws/aws-sdk-go v1.40.9
 	github.com/googleapis/gax-go/v2 v2.0.5
-	github.com/hashicorp/go-hclog v0.16.1
+	github.com/hashicorp/go-hclog v0.16.2
 	github.com/hashicorp/vault v1.7.4
 	github.com/hashicorp/vault-plugin-secrets-kv v0.8.0
-	github.com/hashicorp/vault/api v1.1.1
+	github.com/hashicorp/vault/api v1.9.0
 	github.com/hashicorp/vault/sdk v0.2.1
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.8.1
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e
+	golang.org/x/net v0.5.0
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c
 	k8s.io/apimachinery v0.21.3
 	k8s.io/client-go v0.21.3
